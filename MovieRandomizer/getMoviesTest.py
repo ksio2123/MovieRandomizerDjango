@@ -9,12 +9,10 @@ print len(movieDiv)
 
 movies ={}
 
-# print(movieDiv.div.span['data-value'])
-
 
 i = 0
 for element in movieDiv:
-	#collect div hidden, capture all span
+	#collect div[0] "class=hidden", capture all span
 	temp = element.div.find_all("span")
 
 	#print out span[1] which is name of movie
