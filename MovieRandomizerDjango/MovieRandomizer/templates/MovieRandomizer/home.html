@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="eng">
+{% load static %}
+<head>
+    <link href= "{% static 'bootstrap-3.3.6-dist/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <style>
+
+        div .col-md-3 { max-height:360px }
+
+        img { max-height:330px; }
+
+        .title { background-color:#4E549C }
+
+        .title-name { color:#FFFFFF}
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron title">
+        <div class="containter">
+            <h2 class="text-center title-name">Movie Randomizer</h2>
+        </div>
+    </div>
+    <div class="container">
+    <div class="row">
+        {% for movie in movies %}
+        <div class="col-md-3">
+            <a href="#movie_details" data-toggle="modal" class="thumbnail">
+                <img src={{movie.picture_url}}>
+            </a>
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+    <script src="{% static 'bootstrap-3.3.6-dist/js/jquery-2.1.3.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.6-dist/js/bootstrap.min.js' %}"></script>
+
+    <div class="modal fade" id="movie_details" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>{{ movie.title }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

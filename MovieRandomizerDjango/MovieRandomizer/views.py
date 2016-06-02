@@ -22,5 +22,5 @@ def home(request):
         picture_url = "http://image.tmdb.org/t/p/w500"
         new_movie = Movie(movie['title'],movie['release_date'], movie['overview'], picture_url+movie["poster_path"])
         movie_list.append(new_movie)
-    print movie_list[0]
-    return HttpResponse("hello")
+    context = {"movies":movie_list}
+    return render(request,'MovieRandomizer/home.html', context)

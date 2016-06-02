@@ -1,3 +1,4 @@
+from django.utils.encoding import smart_str
 class Movie():
 
     def __init__(self, title, release_date, description, picture_url):
@@ -8,4 +9,4 @@ class Movie():
         self.picture_url = picture_url
 
     def __str__(self):
-        return self.title
+        return smart_str(self.description)
