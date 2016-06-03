@@ -20,7 +20,10 @@ def home(request):
     movie_list = []
     for movie in movies:
         picture_url = "http://image.tmdb.org/t/p/w500"
-        new_movie = Movie(movie['title'],movie['release_date'], movie['overview'], picture_url+movie["poster_path"])
-        movie_list.append(new_movie)
+        poster_url = ""
+        if movie["poster_path"] != None:
+            poster_url = picture_url + movie["poster_path"]
+            new_movie = Movie(movie['title'],movie['release_date'], movie['overview'], poster_url)
+            movie_list.append(new_movie)
     context = {"movies":movie_list}
     return render(request,'MovieRandomizer/home.html', context)
